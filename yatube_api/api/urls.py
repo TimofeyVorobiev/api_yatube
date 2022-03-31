@@ -10,8 +10,7 @@ router.register('groups', GroupsViewSet, basename='groups')
 router.register(
     r'^posts/(?P<post_id>\d+)/comments',
     CommentsViewSet,
-    basename='comments'
-    )
+    basename='comments')
 
 urlpatterns = [
     path('api/v1/', include(router.urls)),
