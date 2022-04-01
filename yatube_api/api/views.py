@@ -8,7 +8,7 @@ from rest_framework.permissions import IsAuthenticated
 from .serializers import PostsSerializer, GroupsSerializer, CommentsSerializer
 
 
-class IsOwnerOrReadOnly(permissions.BasePermission):
+class IsAuthorOrReadOnly(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         if request.method in permissions.SAFE_METHODS:
             return True
@@ -18,7 +18,7 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
 class PostsViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostsSerializer
-    permission_classes = (IsOwnerOrReadOnly, IsAuthenticated)
+    permission_classes = (IsAuthorOrReadOnly, IsAuthenticated)
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
