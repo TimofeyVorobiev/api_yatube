@@ -32,7 +32,7 @@ class GroupsViewSet(viewsets.ReadOnlyModelViewSet):
 class CommentsViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentsSerializer
-    permission_classes = (IsOwnerOrReadOnly, IsAuthenticated)
+    permission_classes = (IsAuthorOrReadOnly, IsAuthenticated)
 
     def get_queryset(self):
         post_id = self.kwargs.get('post_id')
