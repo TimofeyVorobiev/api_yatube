@@ -1,5 +1,3 @@
-from posts.models import Post, Group, Comment
-
 from rest_framework.generics import get_object_or_404
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
@@ -7,6 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 from .permissions import IsAuthorOrReadOnly
 from .serializers import PostsSerializer, GroupsSerializer, CommentsSerializer
 
+from posts.models import Post, Group, Comment
 
 class PostsViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
