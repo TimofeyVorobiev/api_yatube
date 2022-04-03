@@ -7,6 +7,7 @@ from .serializers import PostsSerializer, GroupsSerializer, CommentsSerializer
 
 from posts.models import Post, Group, Comment
 
+
 class PostsViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostsSerializer
