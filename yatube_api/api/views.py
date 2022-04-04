@@ -4,7 +4,6 @@ from rest_framework.permissions import IsAuthenticated
 
 from .permissions import IsAuthorOrReadOnly
 from .serializers import PostsSerializer, GroupsSerializer, CommentsSerializer
-
 from posts.models import Post, Group, Comment
 
 
